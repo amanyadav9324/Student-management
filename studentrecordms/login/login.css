@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: url('login.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-box {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 30px;
+  color: rgb(255, 255, 255);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.form-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-box input[type="email"],
+.form-box input[type="password"],
+.form-box input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  background: transparent;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+}
+
+.form-box input:focus {
+  outline: none;
+  border-bottom: 1px solid #b8b7b7;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.form-box button {
+  width: 100%;
+  padding: 10px;
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form-box button:hover {
+  background: #ddd;
+}
+
+.form-box p {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.form-box a {
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+.error {
+  background: #ffe5e5;
+  color: #c00;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.success {
+  background: #e5ffe5;
+  color: #0a0;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
