@@ -25,19 +25,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'rao011405@gmail.com';
-            $mail->Password = 'usjz ekch ubmb ocaw';
+            $mail->Username = 'YOUR EMAIL ID';
+            $mail->Password = 'YOUR PASSWORD';
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 
-            $mail->setFrom('rao011405@gmail.com', 'HACKER 💀');
+            $mail->setFrom('YOUR EMAIL ID', 'HACKER 💀');
             $mail->addAddress($email);
             $mail->isHTML(true);
             $mail->Subject = 'Your OTP Code';
             $mail->Body    = "<h2>Your OTP is: <strong>$otp</strong>. It is valid for 10 minutes
             and can be used only once for verification purposes.⚠️ Do not share this code with
             anyone, including support staff. If you did not request this code, please ignore this
-            message or contact our support team immediately. - Aman@gmail.com </h2>";
+            message or contact our support team immediately. - YOUR EMAIL NAME@gmail.com </h2>";
 
             $mail->send();
             $msg = "OTP sent to $email";
