@@ -55,9 +55,9 @@
                         <li>
                    <a href="change-password.php"><i class="fa fa-cog fa-fw"></i> Change Password</a>
                         </li>
-                 <!-- <li>
+                 <li>
                    <a href="admin-profile.php"><i class="fa fa-user fa-fw"></i>Admin Profile</a>
-                        </li> -->
+                        </li>
 
                    <li>
                             <a href="logout.php"><i class="fa fa-sign-out fa-fw"></i>Logout</a>

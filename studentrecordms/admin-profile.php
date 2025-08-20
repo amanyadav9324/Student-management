@@ -8,146 +8,114 @@ header("Expires: 0");
 
 include('includes/dbconnection.php');
 
+// Check if user is logged in
 if (!isset($_SESSION['username'])) {
-  header('location:logout.php');
-  exit();
-} else{
-
-
-if(isset($_POST['submit'])){	
-$aid=$_SESSION['aid'];
-$aname=$_POST['adminname'];
-$aemail=$_POST['aemailid'];
-
-
-$query=mysqli_query($con,"update tbl_login set FullName='$aname',AdminEmail='$aemail' where id='$aid'");
-if($query){
-echo '<script>alert("Admin Profile updated successfully")</script>';
-echo "<script>window.location.href='admin-profile.php'</script>";
+    header('location:logout.php');
+    exit();
 }
-	
- }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Edit Profile</title>
+<title>User Profile</title>
+
 <!-- Bootstrap Core CSS -->
-<link href="bower_components/bootstrap/dist/css/bootstrap.min.css"
-	rel="stylesheet">
+<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- MetisMenu CSS -->
-<link href="bower_components/metisMenu/dist/metisMenu.min.css"
-	rel="stylesheet">
+<link href="bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 <!-- Custom CSS -->
 <link href="dist/css/sb-admin-2.css" rel="stylesheet">
 <!-- Custom Fonts -->
-<link href="bower_components/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-	<script>
+<link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<script>
     window.history.forward();
     function noBack() { window.history.forward(); }
 </script>
-
 </head>
 <body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
-<form method="post" >
-	<div id="wrapper">
+<div id="wrapper">
 
-		<!-- Navigation -->
-		<?php include('leftbar.php')?>;
+    <!-- Navigation -->
+    <?php include('leftbar.php'); ?>
 
-		<div id="page-wrapper">
-			<div class="row">
-				<div class="col-lg-12">
-					<h4 class="page-header"> <?php echo strtoupper("welcome"." ".htmlentities($_SESSION['username']));?></h4>
-				</div>
-				<!-- /.col-lg-12 -->
-			</div>
-			<!-- /.row -->
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="panel panel-default">
-                            <?php 
-$adminid=intval($_SESSION['username']);
-$query=mysqli_query($con,"SELECT * FROM users where username='$adminid'");
-$sn=1;
-while($res=mysqli_fetch_array($query)){?>	
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="page-header">
+                    <?php echo strtoupper("Welcome " . htmlentities($_SESSION['username'])); ?>
+                </h4>
+            </div>
+        </div>
+        
+        <!-- Profile Info Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <?php 
+                    $username = $_SESSION['username'];
+                    $query = mysqli_query($con, "SELECT * FROM users WHERE username='$username'");
+                    $res = mysqli_fetch_array($query);
+                    ?>
 
+                    <div class="panel-heading"><b>User Profile</b></div>
+                    <div class="panel-body">
 
-						<div class="panel-heading"><b>Edit Admin Profile</b></div>
-						<div class="panel-body">
-							<div class="row">
-						 	<div class="col-lg-10">
+            <div class="card shadow-lg border-0 rounded-4 mx-auto" style="max-width: 650px;">
+                <div class="card-body text-center p-5">
 
+                    <!-- Profile Picture -->
+                    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" 
+                         class="rounded-circle border border-3 border-primary mb-3" 
+                         alt="Profile Picture" width="100" height="100">
 
-										<div class="form-group">
-											<div class="col-lg-4">
-<label>Name</label>
+                    <!-- Username -->
+                    <h3 class="fw-bold mb-0"><?php echo htmlentities($res['username']); ?></h3>
+                    <p class="text-muted small">User Profile</p>
+
+                    <!-- Divider -->
+                    <hr class="my-4">
+
+                    <!-- Profile Details -->
+                    <div class="row text-start px-3">
+                        <div class="col-6 mb-3">
+                            <p class="text-muted mb-1"><strong>Username</strong></p>
+                            <p><?php echo htmlentities($res['username']); ?></p>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <p class="text-muted mb-1"><strong>Email</strong></p>
+                            <p><?php echo htmlentities($res['email']); ?></p>
+                        </div>
+                        
+                        <div class="col-6 mb-3">
+                            <p class="text-muted mb-1"><strong>Registration Date</strong></p>
+                            <p><?php echo date("d M, Y", strtotime($res['created_at'])); ?></p>
+                        </div>
+                    </div>
+
+                    <!-- Back Button -->
+                    <div class="mt-4">
+                        <a href="dashboard.php" class="btn btn-primary px-4">
+                            <i class="fa fa-arrow-left"></i> Back to Dashboard
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    </div> <!-- Panel Body End -->
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="col-lg-6">		
-<input class="form-control" name="username" id="username"  value="<?php echo $res['username'];?>" required="required">       
-</div>
-</div>	<br><br>
-								
-<div class="form-group">
-<div class="col-lg-4">
-<label>Email id</label>
-</div>
-<div class="col-lg-6">
-<input class="form-control" name="email" id="email" value="<?php echo $res['email'];?>" required="required">         
-</div>
-</div>	
-										
-<br><br>								
-<div class="form-group">
-<div class="col-lg-4">
-<label>Logind Id/ username</label>
-</div>
-<div class="col-lg-6">
-<input class="form-control" name="loginid" id="loginid" value="<?php echo $res['loginid'];?>" disabled required="required">
-<small style="color:red;">Logind Id/ username can't be edit</small></div>
-</div> <br><br>	
 
+<!-- Scripts -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+<script src="dist/js/sb-admin-2.js"></script>
 
-		
-	
-<?php }  ?>
-
-<div class="form-group">
-<div class="col-lg-4"></div>
-<div class="col-lg-6"><br><br><input type="submit" class="btn btn-primary" name="submit" value="Update Profile"></button></div>
-</div></div></div>
-								
-							</div>
-							
-						</div>
-						
-					</div>
-					
-				</div>
-				
-			</div>
-			
-		</div>
-		
-
-	</div>
-	
-<script src="bower_components/jquery/dist/jquery.min.js"
-		type="text/javascript"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"
-		type="text/javascript"></script>
-<!-- Metis Menu Plugin JavaScript -->
-<script src="bower_components/metisMenu/dist/metisMenu.min.js"
-		type="text/javascript"></script>
-<!-- Custom Theme JavaScript -->
-<script src="dist/js/sb-admin-2.js" type="text/javascript"></script>
-</form>
 </body>
 </html>
-<?php } ?>
