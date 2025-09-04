@@ -287,110 +287,84 @@ while($res=mysqli_fetch_array($query)){ ?>
 		</div>
       	</div>
 		</div>
-			
-		<div class="row">
-			<div class="col-lg-12">
-			<div class="panel panel-default">
-			<div class="panel-heading">Contact Informations</div>
-			<div class="panel-body">
-			<div class="row">
-			<div class="col-lg-12">
-			<div class="form-group">
-		    <div class="col-lg-2">
-			<label>Mobile Number<span id="" style="font-size:11px;color:red">*</span>	</label>
-			
-			</div>
-			<div class="col-lg-4">
-			<input class="form-control" type="number" name="mobno" required="required">
-			</div>
-			 <div class="col-lg-2">
-			<label>Email Id</label>
-			
-			</div>
-			<div class="col-lg-4">
-			<input class="form-control"  type="email" name="email">
-			</div>
-			</div>	
-			<br><br>
 								
-		<div class="form-group">
-		    <div class="col-lg-2">
-			<label>Country</label>
-			</div>
-			<div class="col-lg-4">
-			<select class="form-control" name="country" id="country" onchange="showState(this.value)" required="required" >			
-<option VALUE="">Select Country</option>
-				<?php $ret=mysqli_query($con,"SELECT * FROM countries");
-				while($res=mysqli_fetch_array($ret)){?>							
-			
-   <option VALUE="<?php echo htmlentities($res['id']);?>"><?php echo htmlentities($res['name'])?></option>
-                        
-                        
-                    <?php }?>   </select>
-			</div>
-			 <div class="col-lg-2">
-			<label>State</label>
-			
-			</div>
-			<div class="col-lg-4">
- <select name="state" id="state"  class="form-control" onchange="showDist(this.value)" required="required">
-        <option value="">Select State</option>
-        </select>
-			</div>
-			
-			</div>	
-			
-	<br><br><br><br>		
-		     <div class="form-group">
-			 <div class="col-lg-2">
-			<label>City<span id="" style="font-size:11px;color:red">*</span>	</label>
-			
-			</div>
-			<div class="col-lg-4">
-           <select name="city" id="dist"  class="form-control" onchange="" required="required">
-        <option value="">Select City</option>
-		</select>
-			</div>
-			 <div class="col-lg-2">
-			<label>Permanent Address<span id="" style="font-size:11px;color:red">*</span></label>
-			
-			</div>
-			<div class="col-lg-4">
-			<textarea class="form-control" rows="3" name="padd" id="padd"></textarea>
-			</div>
-			</div>	
-			<br><br><br><br>
-					
-		     
-			<br><br>
-			
-			
-					
-		     <div class="form-group">
-			 <div class="col-lg-2">
-			<label>Correspondence Address<span id="" style="font-size:11px;color:red">*</span>
-			
-			</div>
-			<div class="col-lg-4">
-      <textarea class="form-control" rows="3" name="cadd"  id="cadd"></textarea>
-			</div>
-			 <div class="col-lg-2">
-			
-			
-			
-			</div>
-			<div class="col-lg-4">
-			
-			</div>
-			</div>	
-			<br><br>
-			
-			
-			</div>	
-			<br><br>
-		</div>
-      	</div>
-		</div>					
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Contact Informations</div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <div class="col-lg-2">
+                <label>Mobile Number<span style="font-size:11px;color:red">*</span></label>
+              </div>
+              <div class="col-lg-4">
+                <input class="form-control" type="number" name="mobno" required="required">
+              </div>
+              <div class="col-lg-2">
+                <label>Email Id</label>
+              </div>
+              <div class="col-lg-4">
+                <input class="form-control" type="email" name="email">
+              </div>
+            </div>
+            <br><br>
+
+            <div class="form-group">
+              <div class="col-lg-2">
+                <label>Country</label>
+              </div>
+              <div class="col-lg-4">
+                <select class="form-control" name="country" id="country" required="required">
+                  <option value="">Select Country</option>
+                </select>
+              </div>
+              <div class="col-lg-2">
+                <label>State</label>
+              </div>
+              <div class="col-lg-4">
+                <select name="state" id="state" class="form-control" required="required">
+                  <option value="">Select State</option>
+                </select>
+              </div>
+            </div>
+
+            <br><br><br><br>
+            <div class="form-group">
+              <div class="col-lg-2">
+                <label>City<span style="font-size:11px;color:red">*</span></label>
+              </div>
+              <div class="col-lg-4">
+                <select name="city" id="city" class="form-control" required="required">
+                  <option value="">Select City</option>
+                </select>
+              </div>
+              <div class="col-lg-2">
+                <label>Permanent Address<span style="font-size:11px;color:red">*</span></label>
+              </div>
+              <div class="col-lg-4">
+                <textarea class="form-control" rows="3" name="padd" id="padd"></textarea>
+              </div>
+            </div>
+            <br><br><br><br>
+
+            <div class="form-group">
+              <div class="col-lg-2">
+                <label>Correspondence Address<span style="font-size:11px;color:red">*</span></label>
+              </div>
+              <div class="col-lg-4">
+                <textarea class="form-control" rows="3" name="cadd" id="cadd"></textarea>
+              </div>
+            </div>
+            <br><br>
+          </div>
+          <br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>					
         <div class="row">
 			<div class="col-lg-12">
 			<div class="panel panel-default">
@@ -545,33 +519,64 @@ while($res=mysqli_fetch_array($query)){ ?>
 	<!-- Custom Theme JavaScript -->
 	<script src="dist/js/sb-admin-2.js" type="text/javascript"></script>
 	<script>
-function showState(val) {
-    
-  	$.ajax({
-	type: "POST",
-	url: "subject.php",
-	data:'id='+val,
-	success: function(data){
-	  // alert(data);
-		$("#state").html(data);
-	}
-	});
-}
+	// Country and statet
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-function showDist(val) {
-    
-  	$.ajax({
-	type: "POST",
-	url: "subject.php",
-	data:'did='+val,
-	success: function(data){
-	  // alert(data);
-		$("#dist").html(data);
-	}
-	});
-	
-}
+<script>
+$(document).ready(function () {
+  // Load countries
+  $.get("https://countriesnow.space/api/v0.1/countries", function (response) {
+    if (!response.error) {
+      response.data.forEach(country => {
+        $("#country").append(`<option value="${country.country}">${country.country}</option>`);
+      });
+    }
+  });
 
+  // Load states on country change
+  $("#country").change(function () {
+    let country = $(this).val();
+    $("#state").html('<option value="">Loading...</option>');
+    $("#city").html('<option value="">Select City</option>');
+
+    $.ajax({
+      url: "https://countriesnow.space/api/v0.1/countries/states",
+      method: "POST",
+      contentType: "application/json",
+      data: JSON.stringify({ country: country }),
+      success: function (response) {
+        $("#state").html('<option value="">Select State</option>');
+        if (response.data && response.data.states) {
+          response.data.states.forEach(state => {
+            $("#state").append(`<option value="${state.name}">${state.name}</option>`);
+          });
+        }
+      }
+    });
+  });
+
+  // Load cities on state change
+  $("#state").change(function () {
+    let country = $("#country").val();
+    let state = $(this).val();
+    $("#city").html('<option value="">Loading...</option>');
+
+    $.ajax({
+      url: "https://countriesnow.space/api/v0.1/countries/state/cities",
+      method: "POST",
+      contentType: "application/json",
+      data: JSON.stringify({ country: country, state: state }),
+      success: function (response) {
+        $("#city").html('<option value="">Select City</option>');
+        if (response.data) {
+          response.data.forEach(city => {
+            $("#city").append(`<option value="${city}">${city}</option>`);
+          });
+        }
+      }
+    });
+  });
+});
 
 </script>
 </body>
